@@ -106,6 +106,7 @@ class App extends Component {
             USCurrencyFormat={USCurrencyFormat}
             handleUpdateFeature={ (feature, newValue) => this.updateFeature(feature, newValue)}
             selected={this.state.selected[feature].name}
+            key={itemHash}
           />
         );
       });
@@ -115,6 +116,7 @@ class App extends Component {
           featureHash = {featureHash}
           feature = {feature}
           options = {options}
+          key = {featureHash}
         />
       );
     });
@@ -128,7 +130,9 @@ class App extends Component {
           featureHash={featureHash}
           selectedOption={selectedOption}
           format={USCurrencyFormat}
-          feature={feature}/>
+          feature={feature}
+          key={featureHash}
+        />
       );
     });
 
@@ -142,7 +146,7 @@ class App extends Component {
         <Header />
         <main>
           <Customize 
-          features={features}
+            features={features}
           />
           <Cart 
             summary={summary}
