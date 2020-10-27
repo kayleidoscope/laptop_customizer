@@ -1,16 +1,27 @@
 import React, { Component } from 'react';
+import Specs from '../Specs/Specs';
 import '../App.css';
 
-class Customize extends Component { 
-    render() {
-        const features = this.props.features;
+export default function Customize(props) {
+  const FEATURES = props.FEATURES;
+    const features = Object.keys(FEATURES).map((feature, idx) => {
+        const featureHash = feature + '-' + idx;
         return (
-            <form className="main__form">
-                <h2>Customize your laptop</h2>
-                {features}
-            </form>
-        );
-    }
-}
+            <Specs
+                FEATURES={FEATURES}
+                USCurrencyFormat={props.USCurrencyFormat}
+                selected={props.selected}
+                handleUpdateFeature={props.handleUpdateFeature}
+                featureHash={featureHash}
+                feature={feature}
+            />
+        )
+    })
 
-export default Customize;
+    return (
+         <form className="main__form">
+            <h2>Customize your laptop</h2>
+            {features}
+        </form>
+    );
+}

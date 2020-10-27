@@ -3,7 +3,7 @@ import '../App.css';
 
 class CartItem extends Component {
     render() {
-        const USCurrencyFormat = this.props.format;
+        const USCurrencyFormat = this.props.USCurrencyFormat;
         const featureHash = this.props.featureHash;
         const selectedOption = this.props.selectedOption;
         const feature = this.props.feature;
